@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<button id="default">默认提示框</button>
+	<button id="confirm">确认框</button>
+	<button id="pickdate">系统日期选择对话框1</button>
+	<button id="picktime">系统日期选择对话框2</button>
+	<button id="toast">提示后消失</button>
+	</body>
+	<script type="text/javascript">
+		document.addEventListener('plusready',function(){
+			//1系统提示框托管在plus下面的nativeUI的对象里面
+				document.getElementById('default').addEventListener('touchend',function(){
+					var _nativeUI=plus.nativeUI;
+					_nativeUI.alert('信息已过期','','MyAPP','确认OK')
+				})
+			document.getElementById('confirm').addEventListener('touchend',function(){
+					var _nativeUI=plus.nativeUI;
+					_nativeUI.confirm('确认删除',function(e){
+						alert(JSON.stringify(e));
+						var _index=e.index;
+						if(_index==0){
+							alert('删除了')
+						}else{
+							alert('不想删除了')
+						}
+					},'来自App',["删除","不删除"])
+				})
+				document.getElementById('pickdate').addEventListener('touchend',function(){
+					var _nativeUI=plus.nativeUI;
+					 _nativeUI.pickDate(function(d){
+						alert(JSON.stringify(d))
+					},function(){});
+				
+				})
+				document.getElementById('picktime').addEventListener('touchend',function(){
+					var _nativeUI=plus.nativeUI;
+					 _nativeUI.pickTime(function(d){
+						alert(JSON.stringify(d))
+					},function(){});
+				
+				})
+				document.getElementById('toast').addEventListener('touchend',function(){
+					var _nativeUI=plus.nativeUI;
+					
+				_nativeUI.toast( "无法连接到服务器",{duration:"short",align:"center",verticalAlign:"center"});
+				})
+
+		})
+	</script>
+</html>

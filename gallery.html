@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<title></title>
+		<style type="text/css">
+		*{padding: 0;margin: 0;}
+			html,body,.gallery{width: 100%;height: 100%;background: #acacac;}
+			#item{font-size:52px;font-weight:bold; width: 100px;height: 100px;border-radius: 10px;line-height: 100px;color: white;background: blue;text-align: center;}
+			#img{width: 300px;height: 400px;margin: 0 auto;}
+			#img>img{width: 100px;height: 100px;}
+		</style>
+		
+	</head>
+	<body>
+		<div class="gallery">
+			<div id="item">+</div>
+			<div id="img">
+				
+			</div>
+		</div>
+		<script type="text/javascript">
+			document.addEventListener('plusready',function(){
+											
+			})
+				document.getElementById('item').addEventListener('touchend',function(){
+					var _gallery=plus.gallery;
+					_gallery.pick(function(path){
+						alert(JSON.stringify(path))
+					var _img=path.files;
+					for(var i=0;i<_img.length;i++){
+						var img=document.createElement('img');
+						img.src=_img[i];
+						document.getElementById('img').appendChild(img);
+					}
+						var num=document.getElementsByTagName('img');
+						
+					},function(){
+						alert('can not pick')
+					},{multiple:true,maximum:6})
+					
+				})
+		</script>
+	</body>
+</html>

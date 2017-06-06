@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button id="meid">获取手机的移动编码</button>
+			
+		<button id="vender">获取手机的生产商</button>
+		<button id="daile">打电话</button>
+		<button id="beep">打电话</button>
+		<button id="vol">设置音量</button>
+	</body>
+	<script type="text/javascript">
+		document.addEventListener('plusready',function(){})
+			
+			
+			document.getElementById('meid').ontouchend=function(){
+						console.log(11)
+//					var _meid=plus.device.imei
+//					alert("国际移动标识码"+_meid)
+//					var _vender=plus.device.vendor;
+//					alert("生产商":+_vender)
+			};
+			
+			document.getElementById('daile').ontouchend=function(){
+					var _phoneNumber="18962418541";
+					plus.device.dial(_phoneNumber,false)
+					console.log(1122)
+			};
+			document.getElementById('vol').ontouchend=function(){
+					var _cvol=plus.device.getVolume();
+					
+						plus.device.setVolume(_cvol+0.1);
+						
+					
+			};
+			
+			//1 音乐播放器，可以播放本地音乐
+			//2 点击上一首，下一首歌曲进行切换
+			//3实现在屏幕上面往左，增加声音大小，往右减小声音
+			
+			//第二题基于相册 实现微信立面的上传效果，弹性盒子来做
+			
+			//第三题：一个类似美团的商家列表
+			
+			//---显示商家联系方式,和拨打电话.解析在商家联系方式和拨打电话
+			
+			//第四题：发短信和电子邮件功能declound立面的messaging里面(添加多个用户，并且可以抄送)
+			//把发短信和打电话的界面做的好看一点
+			//第五题：申请百度地图和高的地图的开发者的一个账户，和申请开发者appkey
+	</script>
+</html>
